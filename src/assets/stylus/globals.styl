@@ -1,0 +1,45 @@
+//Load default Definitions
+@require 'defaults'
+
+// BASIC AND ESSENTIAL CSS RESET
+html
+  box-sizing: border-box
+  -webkit-text-size-adjust: 100% /* Prevent adjustments of font size after orientation changes in iOS */
+  word-break: break-word
+  -moz-tab-size: 4
+  tab-size: 4
+  font-size: var(--font__size--ref)
+  height: 100%
+
+*,
+::before,
+::after
+  background-repeat: no-repeat /* Set `background-repeat: no-repeat` to all elements and pseudo elements */
+  box-sizing: inherit
+
+::before,
+::after
+  text-decoration: inherit /* Inherit text-decoration and vertical align to ::before and ::after pseudo elements */
+  vertical-align: inherit
+
+*
+  padding: 0 /* Reset `padding` and `margin` of all elements */
+  margin: 0
+
+body
+  font-family: var(--font__primary), sans-serif
+  font-size:  var(--font__size--default)
+  font-weight: var(--font__regular)
+  text-rendering: optimizeSpeed
+  line-height: var(--font__line-height)
+  padding: 0
+  height: 100%
+  color: var(--color__text--default)
+
+a[href]:not([class])
+  text-decoration: underline;
+  text-decoration-skip-ink: auto
+
+picture
+  display: inline-block
+  line-height: 0

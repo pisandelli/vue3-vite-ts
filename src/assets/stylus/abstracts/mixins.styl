@@ -1,0 +1,41 @@
+_square(val)
+  width: val
+  height: @width
+
+_default-shadow($a = 1)
+  box-shadow: 0 3px ($a * 1px) ($a * -2px) rgba(0,0,0, .2), 0 2px ($a * 2px) 0 rgba(0,0,0, .14), 0 1px ($a * 5px) 0 rgba(0,0,0, .12)
+
+_simple-animation()
+  transition: arguments
+  transition-timing-function: cubic-bezier(.7, 0, .3, 1)
+
+_animation()
+  transform: translate3d(arguments)
+  transition: transform var(--animation__speed, .5s)
+  transition-timing-function: cubic-bezier(.7, 0, .3, 1)
+
+// FLEX GRID
+_row()
+  display: flex
+  flex-flow: var(--vt-grid-row__direction, row) var(--vt-grid-row__wrap, wrap)
+  justify-content: var(--vt-grid-row__justify-content, space-between)
+  align-items: var(--vt-grid-row__align-items, stretch)
+  width: var(--vt-grid-row__width, 100%)
+  max-width: var(--layout__max-width, 1440px)
+  margin: var(--vt-grid-row__margin, 0 auto)
+  gap: var(--vt-grid-row__row-gap, 2rem) var(--vt-grid-row__column-gap, .5rem)
+
+
+_columns()
+  //Loop for columns--1 to columns--12
+  for num in 1..12
+    .column--{num}
+      if num is 12
+        width: unquote('calc(' + num + '/ 12 * 100%)')
+      else
+        width: unquote('calc(' + num + '/ 12 * 100% - var(--vt-grid-row__column-gap, .5rem))')
+
+  //column--1 alias
+  .column
+    width: calc(1 / 12 * 100%)
+
